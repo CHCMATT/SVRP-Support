@@ -1,0 +1,51 @@
+// require the discord.js and GoogleSheets module and configuration and
+const { Client, Collection, Intents } = require('discord.js');
+const fs = require('fs');
+
+const config = require('./config.json');
+
+const interact = require('./interactions');
+
+const myIntents = new Intents();
+myIntents.add(Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_BANS, Intents.FLAGS.GUILD_INVITES, Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.DIRECT_MESSAGES);
+const client = new Client({ intents: myIntents });
+client.commands = new Collection();
+client.buttons = new Collection();
+
+
+client.once('ready', async () => {
+	console.log('Starting up!');
+	client.user.setPresence({ activity: { type: 'COMPETING', name: 'The South Side Olympics' }, status: 'online' });
+	const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); // Fine all the files in the command folder that end with .js
+	const cmdList = []; // Create an empty array for pushing each command file to
+	for (const file of commandFiles) { // For each file in command files grouyp
+		const command = require(`./commands/${file}`); // Get the information that is in the file
+		console.log(`Added ${file}!`); // Log that the command was added
+		cmdList.push(command); // push that command to the array
+		client.commands[command.name] = command; // Save the command name and command information to the client
+	}
+	const allCommands = await client.guilds.cache.get('888571619734339594').commands.set(cmdList) // Sets all the commands
+		.catch(console.error);
+	const cmdIDs = allCommands.keys();
+	for (let i = 0; i < allCommands.size; i++) {
+		const cmdID = cmdIDs.next().value;
+		const cmdName = await allCommands.get(cmdID).name;
+		let permission = client.commands[cmdName].permission;
+		if(permission != undefined) { // If no permissions are given, don't update any permissions
+			if(permission.length == undefined) { // If the permission isn't already an array (more than 1 permission), turn it into an array as that is what the function requires
+				permission = [permission];
+			}
+			client.guilds.cache.get('888571619734339594').commands.permissions.set({ command: cmdID, permissions: permission })
+				.catch(console.error);
+		}
+	}
+	interact(client); // Fire whenever an interaction is created
+	console.log(client.guilds.cache.size); // Lists the number of guilds that the client is connected to
+	const keys = client.guilds.cache.keys(); // Gets the keys for the map object from the guilds object
+	for (const entry of keys) { // For each guild
+		console.log(entry); // Log the guild Key (guild.id)
+	}
+	console.log('Ready!');
+});
+
+client.login(config.token);
