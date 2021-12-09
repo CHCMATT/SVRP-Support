@@ -91,6 +91,10 @@ module.exports = {
 					name: 'SVRP India',
 					value: 'india',
 				},
+				{
+					name: 'SVRP Brazil',
+					value: 'brazil',
+				},
 			],
 		},
 	],

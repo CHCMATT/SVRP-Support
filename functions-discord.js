@@ -43,7 +43,8 @@ module.exports.helpMessages = (option) => {
 			embedMsg = new Discord.MessageEmbed()
 				.setColor('#a41b24')
 				.setTitle('How to reassociate your forum and Discord accounts')
-				.setDescription('This gif will show you the steps for connecting your Discord account with our forums: \n> https://gph.is/g/EJgvbej \n\nCommon issues:\n• If you receive a **No valid connected account request available** error, try using a different browser - ensure you are signed in to Discord on your browser, then try clearing your browser cache/cookies.\n• If you receive a **This account\'s email is already associated with another member** error, this means that you have another forum account. Please sign in to your original SVRP forum account to avoid any issues. \n\nIf you need further assistance, you can ask for help in the <#697795907927932988> channel.')
+				.setDescription('The gif below will show you the steps for connecting your Discord account with our forums. \n\nCommon issues:\n• If you receive a **No valid connected account request available** error, try using a different browser - ensure you are signed in to Discord on your browser, then try clearing your browser cache/cookies.\n• If you receive a **This account\'s email is already associated with another member** error, this means that you have another forum account. Please sign in to your original SVRP forum account to avoid any issues. \n\nIf you need further assistance, you can ask for help in the <#697795907927932988> channel.')
+				.setImage('https://media0.giphy.com/media/L4NBIvIXLtYlZijV9d/giphy.gif')
 				.setTimestamp();
 			break;
 		case 'eta':
@@ -90,6 +91,17 @@ module.exports.helpMessages = (option) => {
 				)
 				.setTimestamp();
 			break;
+		case 'brazil':
+			embedMsg = new Discord.MessageEmbed()
+				.setColor('#a41b24')
+				.setTitle('SVRP Brazil')
+				.setDescription('You can find all information necessary about SVRP\'s Brazil server below:')
+				.addFields(
+					{ name: 'SVRP Brazil Discord', value: '> https://discord.gg/svrpbr' },
+					{ name: 'SVRP Brazil Forums', value: '> https://brazil.svrp.net/' },
+				)
+				.setTimestamp();
+			break;
 		case 'nuicache':
 			embedMsg = new Discord.MessageEmbed()
 				.setColor('#a41b24')
@@ -109,7 +121,7 @@ module.exports.helpMessages = (option) => {
 			embedMsg = new Discord.MessageEmbed()
 				.setColor('#a41b24')
 				.setTitle('Priority Adjustment Information')
-				.setDescription('After donating through the Tebex store, your prio should be adjusted automatically after about 5-10 minutes.\n\nIf you run into issues, make sure to connect Tebex to your FiveM account.\n\nIf you need to cancel your prio for any reason, you can do that through the link in the email you received when you first subscribed.\n\nIf you need further assistance, you can ask for help in the <#697795876734763068> channel.')
+				.setDescription('After donating through the Tebex store, your priority should be adjusted automatically after about 5-10 minutes.\n\nIf you run into issues, make sure to connect Tebex to your FiveM account.\n\nIf you need to cancel your priority for any reason, you can do that through the link in the email you received when you first subscribed.\n\nIf you need further assistance, you can ask for help in the <#697795876734763068> channel.')
 				.setTimestamp();
 			break;
 		case 'queue':
@@ -131,7 +143,7 @@ module.exports.helpMessages = (option) => {
 			embedMsg = new Discord.MessageEmbed()
 				.setColor('#a41b24')
 				.setTitle('Automatic Server Restart times')
-				.setDescription('The automatic server restarts in your timezone are:\n\n> • <t:3133728000:t> (1:00 AM BST)\n> • <t:3133670400:t> (9:00 AM BST)\n> • <t:3133699200:t> (5:00 PM BST)\n\nIf you need further assistance, you can ask for help in the <#697795876734763068> channel.')
+				.setDescription('The automatic server restarts in your timezone are:\n\n> • <t:3133674000:t> (5:00 AM EST)\n> • <t:3133717200:t> (5:00 PM EST)\n\nIf you need further assistance, you can ask for help in the <#697795876734763068> channel.')
 				.setTimestamp();
 			break;
 		case 'rules':
@@ -168,6 +180,6 @@ module.exports.helpMessages = (option) => {
 	}
 	catch(err) {
 		console.error(err);
-		console.log('There was an error. Contact PMass for help!');
+		console.log('There was an error - contact CHCMATT for help!');
 	}
 };
