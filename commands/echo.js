@@ -35,7 +35,7 @@ module.exports = {
 		const message = interaction.options.getString('message');
 		const user = interaction.user;
 		const channel = interaction.channel;
-		console.log(`User ${user} sent echo message "${message}" in ${channel}`);
+		console.log(`[commands/echo.js] User ${user} sent echo message "${message}" in ${channel}`);
 		await interaction.reply({ content: `Sent message "${message}" in ${channel}.`, ephemeral: true });
 		await interaction.channel.send({ content: message });
 	},

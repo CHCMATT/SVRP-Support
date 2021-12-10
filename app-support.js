@@ -14,13 +14,12 @@ client.buttons = new Collection();
 
 
 client.once('ready', async () => {
-	console.log('Starting up!');
-	client.user.setPresence({ activity: { type: 'COMPETING', name: 'The South Side Olympics' }, status: 'online' });
+	console.log('[app-support.js] Received start command.');
 	const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); // Fine all the files in the command folder that end with .js
 	const cmdList = []; // Create an empty array for pushing each command file to
 	for (const file of commandFiles) { // For each file in command files grouyp
 		const command = require(`./commands/${file}`); // Get the information that is in the file
-		console.log(`Added ${file}!`); // Log that the command was added
+		console.log(`[app-support.js] Added ${file}!`); // Log that the command was added
 		cmdList.push(command); // push that command to the array
 		client.commands[command.name] = command; // Save the command name and command information to the client
 	}
@@ -40,12 +39,12 @@ client.once('ready', async () => {
 		}
 	}
 	interact(client); // Fire whenever an interaction is created
-	console.log(client.guilds.cache.size); // Lists the number of guilds that the client is connected to
+	console.log(`[app-support.js] Connected to ${client.guilds.cache.size} guild(s).`); // Lists the number of guilds that the client is connected to
 	const keys = client.guilds.cache.keys(); // Gets the keys for the map object from the guilds object
 	for (const entry of keys) { // For each guild
-		console.log(entry); // Log the guild Key (guild.id)
+		console.log(`[app-support.js] Connected to guild ID ${entry}.`); // Log the guild Key (guild.id)
 	}
-	console.log('Ready!');
+	console.log('[app-support.js] Client is ready.');
 });
 
 client.login(config.token);

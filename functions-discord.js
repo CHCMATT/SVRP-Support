@@ -180,6 +180,6 @@ module.exports.helpMessages = (option) => {
 	}
 	catch(err) {
 		console.error(err);
-		console.log('There was an error - contact CHCMATT for help!');
+		console.log('[functions-discord.js] There was an error - contact CHCMATT for help!');
 	}
 };
