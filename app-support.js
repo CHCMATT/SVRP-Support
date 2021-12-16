@@ -15,6 +15,7 @@ client.buttons = new Collection();
 
 client.once('ready', async () => {
 	console.log('[app-support.js] Received start command.');
+	client.user.setPresence({ activity: { type: 'LISTENING', name: 'The Support Channels' }, status: 'online' }).catch(console.error);
 	const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); // Fine all the files in the command folder that end with .js
 	const cmdList = []; // Create an empty array for pushing each command file to
 	for (const file of commandFiles) { // For each file in command files grouyp
