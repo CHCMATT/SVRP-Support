@@ -15,12 +15,11 @@ client.buttons = new Collection();
 
 client.once('ready', async () => {
 	console.log('[app-support.js] Received start command.');
-	client.user.setPresence({ activity: { type: 'LISTENING', name: 'The Support Channels' }, status: 'online' }).catch(console.error);
-	const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); // Fine all the files in the command folder that end with .js
+	const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); // Find all the files in the command folder that end with .js
 	const cmdList = []; // Create an empty array for pushing each command file to
-	for (const file of commandFiles) { // For each file in command files grouyp
+	for (const file of commandFiles) { // For each file in command files group
 		const command = require(`./commands/${file}`); // Get the information that is in the file
-		console.log(`[app-support.js] Added ${file}!`); // Log that the command was added
+		console.log(`[app-support.js] Added ${file}.`); // Log that the command was added
 		cmdList.push(command); // push that command to the array
 		client.commands[command.name] = command; // Save the command name and command information to the client
 	}
