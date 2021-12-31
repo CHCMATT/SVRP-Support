@@ -25,6 +25,24 @@ module.exports.helpMessages = (option) => {
 				)
 				.setTimestamp();
 			break;
+		case 'bans':
+			embedMsg = new Discord.MessageEmbed()
+				.setColor('#a41b24')
+				.setTitle('Submitting a Ban Appeal')
+				.setDescription('If you have been banned from the SVRP servers, you can submit a ban appeal on the forums at the link below. **Make sure to include all of the requested information**, or your request may be delayed, or denied.\n\nhttps://svrp.net/index.php?forums/ban-appeals.84/')
+				.setTimestamp();
+			break;
+		case 'brazil':
+			embedMsg = new Discord.MessageEmbed()
+				.setColor('#a41b24')
+				.setTitle('SVRP Brazil')
+				.setDescription('You can find all information necessary about SVRP\'s Brazil server below:')
+				.addFields(
+					{ name: 'SVRP Brazil Discord', value: '> https://discord.gg/svrpbr' },
+					{ name: 'SVRP Brazil Forums', value: '> https://brazil.svrp.net/' },
+				)
+				.setTimestamp();
+			break;
 		case 'cache':
 			embedMsg = new Discord.MessageEmbed()
 				.setColor('#a41b24')
@@ -72,6 +90,16 @@ module.exports.helpMessages = (option) => {
 				.setDescription('You can find our forums here:\n> https://svrp.net/index.php')
 				.setTimestamp();
 			break;
+		case 'greece':
+			embedMsg = new Discord.MessageEmbed()
+				.setColor('#a41b24')
+				.setTitle('SVRP Greece')
+				.setDescription('You can find all information necessary about SVRP\'s Greece server below:')
+				.addFields(
+					{ name: 'SVRP Greece Discord', value: '> https://discord.gg/hTPNU8HgVK' },
+				)
+				.setTimestamp();
+			break;
 		case 'hex':
 			embedMsg = new Discord.MessageEmbed()
 				.setColor('#a41b24')
@@ -91,17 +119,6 @@ module.exports.helpMessages = (option) => {
 				)
 				.setTimestamp();
 			break;
-		case 'brazil':
-			embedMsg = new Discord.MessageEmbed()
-				.setColor('#a41b24')
-				.setTitle('SVRP Brazil')
-				.setDescription('You can find all information necessary about SVRP\'s Brazil server below:')
-				.addFields(
-					{ name: 'SVRP Brazil Discord', value: '> https://discord.gg/svrpbr' },
-					{ name: 'SVRP Brazil Forums', value: '> https://brazil.svrp.net/' },
-				)
-				.setTimestamp();
-			break;
 		case 'nuicache':
 			embedMsg = new Discord.MessageEmbed()
 				.setColor('#a41b24')
@@ -115,6 +132,13 @@ module.exports.helpMessages = (option) => {
 				.setColor('#a41b24')
 				.setTitle('Password Reset Information')
 				.setDescription('If you are trying to log in to the forums and need a password reset, DM <@322205520058515459> or <@640656609265319937> on Discord. Make sure to include: \n• your forum username\n• your email address\n• a brief description of the issue.\n\nIf you need further assistance, you can ask for help in the <#697795907927932988> channel.')
+				.setTimestamp();
+			break;
+		case 'peds':
+			embedMsg = new Discord.MessageEmbed()
+				.setColor('#a41b24')
+				.setTitle('Ped Model Information and Whitelisting')
+				.setDescription('If you would like to play a ped model on our server, you are welcome to do so. There are a few whitelisted peds, which are only allowed to be played by certain people, so **please check with the Staff team using the <#697795876734763068> channel before you pick a ped** and begin playing.\n\nFor a full list of peds, you can use the link below to view them. Once you have picked one, visit any Clothing Store and click on the button that looks like a full body, then you can copy and paste the ped model name from the website into the text box and press [enter] to select it.\n\nhttps://docs.fivem.net/docs/game-references/ped-models/')
 				.setTimestamp();
 			break;
 		case 'prio':

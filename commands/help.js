@@ -24,6 +24,10 @@ module.exports = {
 					value: 'apply',
 				},
 				{
+					name: 'Ban Appeals',
+					value: 'bans',
+				},
+				{
 					name: 'Clearing Cache',
 					value: 'cache',
 				},
@@ -46,6 +50,10 @@ module.exports = {
 				{
 					name: 'Clearing NUI Cache',
 					value: 'nuicache',
+				},
+				{
+					name: 'Ped Model Info & Whitelisting',
+					value: 'peds',
 				},
 				{
 					name: 'Prio Adjustment after Purchasing',
@@ -94,6 +102,10 @@ module.exports = {
 				{
 					name: 'SVRP Brazil',
 					value: 'brazil',
+				},
+				{
+					name: 'SVRP Greece',
+					value: 'greece',
 				},
 			],
 		},
