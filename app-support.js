@@ -2,8 +2,7 @@
 const { Client, Collection, Intents } = require('discord.js');
 const fs = require('fs');
 
-// const config = require('./config-live.json'); // live bot config file
-const config = require('./config-test.json'); // testing bot config file
+const config = require('./config.json'); 
 
 const interact = require('./interactions');
 
